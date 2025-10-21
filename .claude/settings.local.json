@@ -23,7 +23,13 @@
       "Bash(psql lagomorph -c \"UPDATE agent_prompts SET system_prompt = ''You are a helpful and friendly web scraping assistant. Help users understand what you can do and answer their questions conversationally. Keep responses concise and clear.'' WHERE agent_name = ''chat_agent'';\")",
       "Bash(git init)",
       "Bash(git add .gitignore README.md backend/ frontend/)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: AI-powered web scraping application\n\nFull-stack application built with FastAPI and React that uses Claude AI to\nscrape websites and extract company information (names and addresses).\n\nFeatures:\n- FastAPI backend with PostgreSQL database\n- React frontend with Tailwind CSS\n- Chat interface for conversational scraping requests\n- Claude AI integration for intelligent data extraction\n- Agent prompt editor for real-time system prompt updates\n- Database-driven agent configuration\n- Streaming responses with Server-Sent Events\n\nTech stack:\nBackend: FastAPI, SQLAlchemy, Alembic, Anthropic SDK, PostgreSQL\nFrontend: React, Vite, TailwindCSS, React Router\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git remote add origin https://github.com/roberthead/lagomorph.git)",
+      "Bash(git branch -M main)",
+      "Bash(git push -u origin main)",
+      "Bash(cat backend/package.json frontend/package.json)",
+      "Read(//Users/roberthead/github.com/roberthead/**)"
     ],
     "deny": [],
     "ask": []

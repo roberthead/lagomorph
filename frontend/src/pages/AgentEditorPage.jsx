@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import MessageList from '../components/MessageList'
 import ChatInput from '../components/ChatInput'
+import Navigation from '../components/Navigation'
 
 function AgentEditorPage() {
   const { name } = useParams()
@@ -218,19 +219,17 @@ function AgentEditorPage() {
 
   return (
     <div className="flex flex-col h-screen bg-gray-50">
-      {/* Header */}
-      <div className="border-b border-gray-200 px-6 py-4 bg-white">
+      {/* Navigation */}
+      <Navigation />
+
+      {/* Page Header */}
+      <div className="border-b border-gray-200 px-6 py-3 bg-white">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link to="/" className="text-gray-500 hover:text-gray-700">
-              ← Back
-            </Link>
-            <div>
-              <h1 className="text-xl font-medium text-gray-900">
-                {formatAgentName(name)}
-              </h1>
-              <p className="text-sm text-gray-500">Agent Editor</p>
-            </div>
+          <div>
+            <h2 className="text-lg font-medium text-gray-900">
+              {formatAgentName(name)}
+            </h2>
+            <p className="text-sm text-gray-500">Agent Editor</p>
           </div>
           {saveMessage && (
             <div className={`text-sm ${saveMessage.includes('✓') ? 'text-green-600' : 'text-red-600'}`}>

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api import scraping, agents
+from app.api import scraping, agents, validations
 
 router = APIRouter()
 
@@ -14,3 +14,6 @@ router.include_router(scraping.router, prefix="/scraping", tags=["scraping"])
 
 # Include agent management routes
 router.include_router(agents.router, prefix="/agents", tags=["agents"])
+
+# Include validation routes
+router.include_router(validations.router, prefix="/validations", tags=["validations"])

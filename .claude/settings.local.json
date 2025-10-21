@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(python:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(uvicorn:*)",
+      "Bash(curl http://127.0.0.1:8000/)",
+      "Bash(curl http://127.0.0.1:8000/api/welcome)",
+      "Bash(npm run dev)",
+      "Bash(lsof:*)",
+      "Bash(curl http://localhost:5173/)",
+      "Bash(curl:*)",
+      "Bash(alembic revision:*)",
+      "Bash(alembic upgrade:*)",
+      "Bash(createdb:*)",
+      "Bash(pkill:*)",
+      "Bash(psql lagomorph -c \"UPDATE agent_prompts SET system_prompt = ''You are a helpful and friendly web scraping assistant. Help users understand what you can do and answer their questions conversationally. Keep responses concise and clear.'' WHERE agent_name = ''chat_agent'';\")",
+      "Bash(git init)",
+      "Bash(git add .gitignore README.md backend/ frontend/)",
+      "Bash(git add .)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

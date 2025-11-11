@@ -31,7 +31,9 @@
       "Bash(cat backend/package.json frontend/package.json)",
       "Read(//Users/roberthead/github.com/roberthead/**)",
       "Bash(git commit -m \"$(cat <<''EOF''\nAdd validation system and unified navigation\n\nFeatures:\n- Response validation system with pluggable validator architecture\n- AddressCompletenessValidator: scores addresses on street, city, state, zip\n- Database model for storing validation results\n- Validation API endpoints (validate, batch, stats)\n- Validations page with score distribution and detailed breakdown\n- Unified navigation component across all pages\n- Real-time validation of scraping results\n\nBackend:\n- BaseValidator abstract class for extensible validators\n- AddressCompletenessValidator with state name/abbreviation support\n- response_validations table with migration\n- API endpoints: POST /validate, GET /stats, GET /response/:id\n- Validation schemas and models\n\nFrontend:\n- ValidationsPage: view scores, validate responses, see criteria breakdown\n- Navigation component: consistent header with active state highlighting\n- Updated all pages to use shared navigation\n- Color-coded score badges (Excellent/Good/Acceptable/Poor)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git push origin main)"
+      "Bash(git push origin main)",
+      "Bash(pytest:*)",
+      "Bash(./venv/bin/python -m pytest:*)"
     ],
     "deny": [],
     "ask": []

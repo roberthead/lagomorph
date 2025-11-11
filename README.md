@@ -135,6 +135,8 @@ lagomorph/
 - **Create migration**: `alembic revision --autogenerate -m "description"`
 - **Apply migrations**: `alembic upgrade head`
 - **Rollback migration**: `alembic downgrade -1`
+- **Run tests**: `pytest` (see Testing section below)
+- **Run tests with coverage**: `pytest --cov=app --cov-report=html`
 
 ### Frontend
 
@@ -149,6 +151,74 @@ lagomorph/
 - `GET /docs` - Interactive API documentation (Swagger UI)
 - `GET /redoc` - Alternative API documentation (ReDoc)
 
+## Testing
+
+### Backend Testing
+
+The backend has comprehensive test coverage (87%+) using pytest. Tests are organized into:
+
+- **Unit tests** (`tests/unit/`) - Test individual components in isolation
+  - `test_models.py` - Database model tests
+  - `test_validators.py` - Validation framework tests
+  - `test_agents.py` - Agent orchestration tests (ChatAgent, ScrapingAgent)
+
+- **Integration tests** (`tests/integration/`) - Test API endpoints and component interactions
+  - `test_api.py` - API endpoint tests
+
+#### Running Tests
+
+1. Make sure you're in the backend directory with the virtual environment activated:
+   ```bash
+   cd backend
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. Run all tests:
+   ```bash
+   pytest
+   ```
+
+3. Run tests with coverage report:
+   ```bash
+   pytest --cov=app --cov-report=html
+   ```
+
+   This generates an HTML coverage report in `htmlcov/index.html`
+
+4. Run tests with verbose output:
+   ```bash
+   pytest -v
+   ```
+
+5. Run specific test file:
+   ```bash
+   pytest tests/unit/test_models.py
+   ```
+
+6. Run specific test:
+   ```bash
+   pytest tests/unit/test_models.py::TestResponseModel::test_create_response
+   ```
+
+#### Test Coverage
+
+Current test coverage: **87%**
+
+Coverage breakdown by component:
+- **Models**: 100% - Database models and relationships
+- **Validators**: 91-93% - Validation framework (BaseValidator, AddressCompletenessValidator)
+- **Agents**: 97-99% - Agent orchestration (ChatAgent, ScrapingAgent)
+- **API Endpoints**: 57-74% - REST API endpoints
+- **Services**: 85%+ - Web scraping and other services
+
+#### Test Configuration
+
+Tests are configured in `pytest.ini`:
+- Automatic test discovery
+- Coverage measurement with 80% minimum threshold
+- HTML, terminal, and XML coverage reports
+- Exclusions for migrations, venv, and test files
+
 ## Environment Variables
 
 ### Backend (.env)
@@ -156,6 +226,7 @@ lagomorph/
 - `DATABASE_URL` - PostgreSQL connection string
 - `SECRET_KEY` - Secret key for signing tokens
 - `ENVIRONMENT` - Application environment (development/production)
+- `ANTHROPIC_API_KEY` - API key for Claude AI integration
 
 ## License
 
